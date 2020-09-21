@@ -8,3 +8,4 @@ declare module 'js-cookie'
 
 /** 声明图片 */
 declare module '*.gif'
+declare module '*.png'

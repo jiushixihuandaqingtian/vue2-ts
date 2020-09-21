@@ -18,9 +18,32 @@ Vue.use(Router);
 
 /** 公共路由 首页和登录页和一些不用权限的公用页面 */
 const constantRouterMap: RouteConfig[] = [
+  // 默认 首页
+  {
+    path: '',
+    redirect: '/home',
+    component: () => import('@/views/home/index.vue'),
+    children: [
+      {
+        path: 'home',
+        name: 'home',
+        component: () => import('@/views/home/index.vue'),
+        meta: { title: '首页', icon: 'home' }
+      }
+    ]
+  },
+  // 404
   {
     path: '/404',
     component: () => import('@/views/404.vue'),
+    meta: {
+      hidden: true
+    }
+  },
+  // login
+  {
+    path: '/login',
+    component: () => import('@/views/login/index.vue'),
     meta: {
       hidden: true
     }
